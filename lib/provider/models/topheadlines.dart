@@ -81,7 +81,7 @@ class Source {
     this.name,
   });
 
-  String id;
+  String? id;
   String? name;
 
   factory Source.fromJson(Map<String, dynamic> json) => Source(

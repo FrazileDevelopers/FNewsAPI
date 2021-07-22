@@ -10,9 +10,8 @@ class Everything {
   List<Article>? articles;
 
   factory Everything.fromJson(Map<String, dynamic> json) => Everything(
-        status: json["status"] == null ? null : json["status"],
-        totalResults:
-            json["totalResults"] == null ? null : json["totalResults"],
+        status: json["status"] == null ? '' : json["status"],
+        totalResults: json["totalResults"] == null ? '' : json["totalResults"],
         articles: json["articles"] == null
             ? null
             : List<Article>.from(
@@ -50,9 +49,9 @@ class Article {
   String? content;
 
   factory Article.fromJson(Map<String, dynamic> json) => Article(
-        source: json["source"] == null ? null : Source.fromJson(json["source"]),
-        author: json["author"] == null ? null : json["author"],
-        title: json["title"] == null ? null : json["title"],
+        source: Source.fromJson(json["source"]),
+        author: json["author"] == null ? '' : json["author"],
+        title: json["title"] == null ? '' : json["title"],
         description: json["description"] == null ? null : json["description"],
         url: json["url"] == null ? null : json["url"],
         urlToImage: json["urlToImage"] == null ? null : json["urlToImage"],
@@ -85,8 +84,8 @@ class Source {
   String? name;
 
   factory Source.fromJson(Map<String, dynamic> json) => Source(
-        id: json["id"] == null ? null : json["id"],
-        name: json["name"] == null ? null : json["name"],
+        id: json["id"] == null ? '' : json["id"],
+        name: json["name"] == null ? '' : json["name"],
       );
 
   Map<String, dynamic> toJson() => {

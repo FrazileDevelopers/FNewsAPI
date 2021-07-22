@@ -1,9 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import '/constants/connectionStatus.dart';
-import '/constants/constants.dart';
 import 'package:http/http.dart' as http;
-
 import 'models/topheadlines.dart';
 
 class TopHeadlines with ChangeNotifier {
@@ -37,12 +35,11 @@ class TopHeadlines with ChangeNotifier {
     _isFetching = false;
     notifyListeners();
 
-    List<Article> walls = [];
     if (jsonResponse.isNotEmpty) {
       Map<String, dynamic> json = jsonDecode(jsonResponse);
-      walls = Top.fromJson(json).articles!;
+      newsData = Top.fromJson(json).articles!;
     }
-    return walls;
+    return newsData;
   }
 
   List<Article> getResponseJson() => newsData;
